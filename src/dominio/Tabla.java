@@ -8,10 +8,12 @@ import javax.swing.table.DefaultTableModel;
 public class Tabla {
 
 	private static Object[] columnas = {"id","Nombre", "Edad", "Sexo"};
-	public static DefaultTableModel tabla = new DefaultTableModel (new Object [0][0], columnas);
+	public static DefaultTableModel tabla;
 	
-	public static final void Lista (ArrayList<Pet> Pets)
+	public static final ArrayList<Pet> Lista (ArrayList<Pet> Pets)
 	{
+		tabla = new DefaultTableModel (new Object [0][0], columnas);
+		
 		for (Pet pet : Pets)	
 		{
 			Object[] x = new Object [4];
@@ -21,6 +23,8 @@ public class Tabla {
 			x[3]=pet.getSexo();
 			tabla.addRow(x);
 		}
+		
+		return tabla;
 	}
 	
 	
